@@ -13,53 +13,57 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/about', function(){
-    return 9*9;
-});
+// Route::get('/about', function(){
+//     return 9*9;
+// });
 
-Route::get('/contact', function(){
-    return view('contact', ['name' => 'M. Saiful Rizal', 'phone' => '08123456789']);
-});
+// Route::get('/contact', function(){
+//     return view('contact', ['name' => 'M. Saiful Rizal', 'phone' => '08123456789']);
+// });
 
 // cara simpel
 // Route::view('/contact', 'contact', ['name' => 'M. Saiful Rizal', 'phone' => '08123456789']);
 
 // Redirect mendefinisikan rute yang mengalihkan ke URI lain
-Route::redirect('/contact', '/contact-us');
+// Route::redirect('/contact', '/contact-us');
 // end
 
 
 // Parameter mengambil segmen URI dalam rute Anda. Misalnya, Anda mungkin perlu mengambil ID pengguna dari URL. 
-Route::get('/product', function(){
-    return 'product';
-});
+// Route::get('/product', function(){
+//     return 'product';
+// });
 
-Route::get('/product/{id}', function($id){
-    // return 'Ini Adalah Product Dengan ID ' .$id;
-    return view('product.detail', ['id' => $id]);
-});
+// Route::get('/product/{id}', function($id){
+//     // return 'Ini Adalah Product Dengan ID ' .$id;
+//     return view('product.detail', ['id' => $id]);
+// });
 // end
 
 
 // Prefix dapat digunakan untuk memberi awalan pada setiap rute dalam grup dengan URI tertentu.
-Route::prefix('admin')->group(function () {
-    Route::get('/users', function () {
-        // Matches The "/admin/users" URL
-    });
-    Route::get('/profil-admin', function(){
-        return 'Profil Admin';
-    });
+// Route::prefix('admin')->group(function () {
+//     Route::get('/users', function () {
+//         // Matches The "/admin/users" URL
+//     });
+//     Route::get('/profil-admin', function(){
+//         return 'Profil Admin';
+//     });
     
-    Route::get('/about-admin', function(){
-        return 'About Admin';
-    });
+//     Route::get('/about-admin', function(){
+//         return 'About Admin';
+//     });
     
-    Route::get('/contact-admin', function(){
-        return 'Contact Admin';
-    });
-});
+//     Route::get('/contact-admin', function(){
+//         return 'Contact Admin';
+//     });
+// });
 // end
+
+Route::get('/', function () {
+    return view('home', ['name' => 'M. Saiful Rizal']);
+});
