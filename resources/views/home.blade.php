@@ -1,15 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laravel 9 | Home</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
-<body>
-    <h1>ini halaman home</h1>
-    <h2>Selamat Datang, ( {{ $name }} )</h2>
+@extends('layouts.mainlayout')
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
-</html>
+@section('title', 'Home')
+
+@section('content')
+
+
+<h1>ini halaman home</h1>
+<h2>Selamat Datang, ( {{ $name }} ) anda adalah "{{ $role }}"</h2>
+
+<!-- 
+@if ($role == 'admin')
+    <a href="">Ke Halaman Admin</a>
+@elseif ($role == 'staff')
+    <a href="">Ke Halaman Gudang</a>
+@else 
+    <a href="">Ke Halaman Apa Saja</a>
+@endif 
+-->
+
+<!-- 
+@switch($role)
+    @case($role=='admin')
+        <a href="">Ke Halaman Admin</a>
+        @break
+    @case($role=='staff')
+        <a href="">Ke Halaman Gudang</a>
+        @break
+    @default
+        <a href="">Ke Halaman Apa Saja</a>
+@endswitch 
+-->
+
+<!-- 
+@for($i = 0; $i < 5; $i++)
+    {{$i}} <br>
+@endfor 
+-->
+
+<table class="table">
+    <tr>
+        <th>No.</th>
+        <th>Nama</th>
+    </tr>
+    @foreach($buah as $data)
+    <tr>
+        <td>{{$loop->iteration}}</td>
+        <td>{{$data}}</td>
+    </tr>
+    @endforeach
+
+</table>
+
+@endsection

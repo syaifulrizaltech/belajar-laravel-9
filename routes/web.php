@@ -59,11 +59,19 @@ use Illuminate\Support\Facades\Route;
 //     });
     
 //     Route::get('/contact-admin', function(){
-//         return 'Contact Admin';
+//         return 'Contact Admin';asd
 //     });
 // });
 // end
 
 Route::get('/', function () {
-    return view('home', ['name' => 'M. Saiful Rizal']);
+    return view('home', [
+        'name' => 'M. Saiful Rizal', 
+        'role' => 'man',
+        'buah' => ['pisang', 'apel', 'jeruk', 'semangka', 'kiwi']
+    ]);
+});
+
+Route::get('/about', function(){
+    return view('about');
 });
